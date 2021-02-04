@@ -16,13 +16,16 @@ for (e = 48; e <= 57; e++)
 {
 putchar(i);
 putchar(e);
-if (e < 57)
+if ((e == 57) && (i == 57))
+{
+}
+else
 {
 putchar(44);
 putchar(' ');
 }
 }
-putchar('\n');
 }
+putchar('\n');
 return (0);
 }
