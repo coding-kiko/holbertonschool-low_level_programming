@@ -12,17 +12,23 @@ int i;
 int e;
 for (i = 48; i <= 57; i++)
 {
-for (e = 48; e <= 57; e++)
+for (e = 49; e < 58; e++)
+{
+if (i >= e)
+{
+}
+else
 {
 putchar(i);
 putchar(e);
-if ((e == 57) && (i == 57))
+if ((i == 56) && (e == 57))
 {
 }
 else
 {
 putchar(44);
 putchar(' ');
+}
 }
 }
 }
