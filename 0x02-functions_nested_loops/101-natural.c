@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 /**
- * main - entry point
+ * natural - entry point
  *
  * Return: always 0 (succes)
  */
 
-void main(void)
+void natural(void)
 {
 int a = 1;
 int sum = 0;
