@@ -18,10 +18,10 @@ printf(" ");
 printf("%lld", b);
 printf(",");
 printf(" ");
-while (i != 48)
+while (i != 47)
 {
 long long int fib = a + b;
-if (fib != 20365011074)
+if (fib != 12586269025)
 {
 printf("%lld", fib);
 printf(",");
