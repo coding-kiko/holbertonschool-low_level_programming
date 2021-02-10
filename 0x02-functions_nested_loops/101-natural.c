@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 /**
- * natural - entry point
+ * main - entry point
  *
  * Return: always 0 (succes)
  */
 
-void natural(void)
+int main(void)
 {
 int a;
 int sum = 0;
@@ -16,4 +16,5 @@ if ((a % 3 == 0) || (a % 5 == 0))
 sum += a;
 }
 printf("%d\n", sum);
+return (0);
 }
