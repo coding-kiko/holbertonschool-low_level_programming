@@ -9,21 +9,21 @@
 
 int main(void)
 {
-long long int a = 1;
-long long int b = 2;
+long int a = 1;
+long int b = 2;
 int i = 0;
-printf("%lld", a);
+printf("%ld", a);
 printf(",");
 printf(" ");
-printf("%lld", b);
+printf("%ld", b);
 printf(",");
 printf(" ");
 while (i != 47)
 {
-long long int fib = a + b;
+long int fib = a + b;
 if (fib != 12586269025)
 {
-printf("%lld", fib);
+printf("%ld", fib);
 printf(",");
 printf(" ");
 a = b;
@@ -32,7 +32,7 @@ i++;
 }
 else
 {
-printf("%lld", fib);
+printf("%ld", fib);
 a = b;
 b = fib;
 i++;
