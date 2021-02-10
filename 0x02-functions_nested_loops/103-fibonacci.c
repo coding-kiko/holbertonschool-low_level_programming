@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+/**
+ * main - entry point
+ *
+ * Return: always 0 (success)
+ */
+
+int main(void)
+{
+int a = 1;
+int b = 2;
+int fib;
+int par = 0;
+while (fib <= 4000000)
+{
+fib = a + b;
+if (fib % 2 == 0)
+par += fib;
+a = b;
+b = fib;
+}
+int t = (par + 2);
+printf("%d\n", t);
+return (0);
+}
