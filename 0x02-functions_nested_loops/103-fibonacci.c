@@ -11,7 +11,7 @@ int main(void)
 int a = 1;
 int b = 2;
 int fib;
-int par = 0;
+int par = 2;
 while (fib <= 4000000)
 {
 fib = a + b;
@@ -20,7 +20,6 @@ par += fib;
 a = b;
 b = fib;
 }
-int t = (par + 2);
-printf("%d\n", t);
+printf("%d\n", par);
 return (0);
 }
