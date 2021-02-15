@@ -20,3 +20,22 @@ void print_rev(char *s)
 	}
 	_putchar('\n');
 }
+
+/**
+ * _strlen - entry point
+ * @s: string to find length
+ * Return: length
+ *
+ */
+
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (*s != 0)
+	{
+		s++;
+		len++;
+	}
+	return (len);
+}
