@@ -17,9 +17,9 @@ int _atoi(char *s)
 			c = -c;
 		if (*s >= 48 && *s <= 57)
 		{
-			n = (*s - '0') + (n * 10);
+			n = n * 10 + c * (*s - '0');
 			if (*(s + 1) < '0' || *(s + 1) > '9')
-				return (n * c);
+				return (n);
 		}
 	}
 	return (n);
