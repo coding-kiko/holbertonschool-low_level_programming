@@ -8,23 +8,18 @@
 
 int _atoi(char *s)
 {
-	int c;
+	int c = 1;
 	int n = 0;
 
-	for (c = 0; *s != 0; s++)
+	for (; *s != 0; s++)
 	{
 		if (*s == '-')
-			c++;
+			c = -c;
 		if (*s >= 48 && *s <= 57)
 		{
 			n = (*s - '0') + (n * 10);
 			if (*(s + 1) < '0' || *(s + 1) > '9')
-			{
-				if (c % 2 == 0)
-					return (n);
-				else
-					return (-n);
-			}
+				return (n * c);
 		}
 	}
 	return (n);
