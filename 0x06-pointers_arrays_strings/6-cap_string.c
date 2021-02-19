@@ -1,4 +1,4 @@
-B#include "holberton.h"
+#include "holberton.h"
 
 /**
  * cap_string - entry point
@@ -10,7 +10,7 @@ B#include "holberton.h"
 char *cap_string(char *a)
 {
 	int i, j;
-	char s [] = {',', ';', '.', ' ', 10, '!', '?', '(', ')', '{', '}', '\t', '"'};
+	char s[] = {',', ';', '.', ' ', 10, '!', '?', '(', ')', '{', '}', '\t', '"'};
 
 	for (i = 0; a[i] != 0; i++)
 	{
@@ -26,5 +26,5 @@ char *cap_string(char *a)
 			}
 		}
 	}
-	return (a);
+return (a);
 }
