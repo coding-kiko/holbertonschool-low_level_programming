@@ -16,7 +16,7 @@ char *leet(char *c)
 	for (i = 0; c[i] != 0; i++)
 	{
 		for (j = 0; m[j] != '\0'; j++)
-		{			
+		{
 			if (c[i] == m[j] || c[i] == (m[j] + 32))
 				c[i] = n[j];
 		}
