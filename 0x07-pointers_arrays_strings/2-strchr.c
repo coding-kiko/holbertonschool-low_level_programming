@@ -34,7 +34,7 @@ int _strcmp(char *s1, char *s2)
 
 char *_strchr(char *s, char c)
 {
-	if (_strcmp("", s) == 0)
+	if (_strcmp("\0", s) == 0)
 		return ('\0');
 	for (; *s != '\0'; s++)
 	{
