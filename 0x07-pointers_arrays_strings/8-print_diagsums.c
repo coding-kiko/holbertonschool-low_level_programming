@@ -11,7 +11,7 @@
 
 void print_diagsums(int *a, int size)
 {
-	int i, one, two;
+	int i, j, one, two;
 	int diag_one = 0;
 	int diag_two = 0;
 
@@ -19,7 +19,11 @@ void print_diagsums(int *a, int size)
 	{
 		one = ((i * size) + i);
 		diag_one += *(a + one);
-		two = ((i + 1) * 2);
+
+	}
+	for (j = 0; j < size; j++)
+	{
+		two = ((j + 1) * (size - 1));
 		diag_two += *(a + two);
 
 	}
