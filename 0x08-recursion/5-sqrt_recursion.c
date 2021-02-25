@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * sqrt - Entry point
+ * sqrt_rec - Entry point
  * @n: string to modify
  * @i: count
  * Return: pointer to memory area s
