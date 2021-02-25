@@ -1,21 +1,19 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
- * _pow_recursion - Entry point
- * @x: string to modify
- * @y: strin
+ * sqrt - Entry point
+ * @n: string to modify
+ * @i: count
  * Return: pointer to memory area s
  */
 
-int _pow_recursion(int x, int y)
+int sqrt_rec(int n, int i)
 {
-	if (y < 0)
+	if (i == n)
 		return (-1);
-	if (y == 0)
-		return (1);
-	else
-		return (x * _pow_recursion(x, y - 1));
+	if ((i * i) == n)
+		return (i);
+	return (sqrt_rec(n, i + 1));
 }
 
 /**
@@ -27,8 +25,11 @@ int _pow_recursion(int x, int y)
 
 int _sqrt_recursion(int n)
 {
+	int i = 0;
+
 	if (n < 0)
 		return (-1);
-	else
-		return (_pow_recursion(n, (1 / 2)));
+	if (n == 0 || n == 1)
+		return (n);
+	return (sqrt_rec(n, i));
 }
