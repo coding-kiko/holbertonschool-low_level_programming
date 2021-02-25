@@ -16,23 +16,22 @@ int _strlen_recursion(char *s)
 }
 
 /**
- * revstring - Entry point
+ * palin - Entry point
  * @s: string to modify
- * @i: start
- * @len: length -1
+ * @beg: hfi
+ * @med: ajdkbak
+ * @end: jjdjdjdj
  * Return: pointer to memory area s
  */
 
-void revstring(char *s, int i, int len)
+int palin(char *s, int beg, int med, int end)
 {
-	char c;
-
-	if (i >= len)
-		return;
-	c = *(s + i);
-	*(s + i) = *(s + len);
-	*(s + len) = c;
-	revstring(s, ++i, --len);
+	if ((s[beg] == s[end]) && (beg < med))
+		return (palin(s, beg + 1, med, end - 1));
+	else if (beg >= med)
+		return (1);
+	else
+		return (0);
 }
 
 /**
@@ -44,13 +43,9 @@ void revstring(char *s, int i, int len)
 
 int is_palindrome(char *s)
 {
-	int i = 0;
-	int len = (_strlen_recursion(s) - 1);
-	char *p = s;
+	int beg = 0;
+	int end = (_strlen_recursion(s) - 1);
+	int med = (_strlen_recursion(s) / 2);
 
-	revstring(s, i, len);
-	if (s == p)
-		return (1);
-	else
-		return (0);
+	return (palin(s, beg, med, end));
 }
