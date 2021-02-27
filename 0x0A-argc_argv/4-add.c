@@ -1,25 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-
-/**
- * digit - entry point
- * @n: number of arguments passed
- * array of pointers pointing to these arguments
- * Return: 0 succes
- */
-
-int digit(int n)
-{
-	int count = 0;
-
-	while (n != 0)
-	{
-		n /= 10;
-		++count;
-	}
-	return (count);
-}
 
 /**
  * main - entry point
@@ -30,20 +10,19 @@ int digit(int n)
 
 int main(int argc, char *argv[])
 {
-	int i, sum = 0;
+	int i, j, sum = 0;
 
-
-	for (i = 0; i < argc; i++)
+	for (i = 1; i < argc; i++)
 	{
-		int s = (short) strlen(argv[i + 1]);
-
-		if (digit(atoi(argv[i + 1])) == s)
-			sum += digit(atoi(argv[i + 1]));
-		else
+		for (j = 0; argv[i][j] != '\0'; j++)
 		{
-			printf("Error\n");
-			return (1);
+			if (argv[i][j] < 48 || argv[i][j] > 57)
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
+		sum = sum + atoi(argv[i]);
 	}
 	printf("%d\n", sum);
 	return (0);
