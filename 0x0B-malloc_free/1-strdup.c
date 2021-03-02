@@ -1,7 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "holberton.h"
-#include <string.h>
+
+/**
+ * _strlen - entry point
+ * @s: string to find length
+ * Return: length
+ *
+ */
+
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (*s != 0)
+	{
+		s++;
+		len++;
+	}
+	return (len);
+}
 
 /**
  * _strdup - entry point
@@ -12,7 +30,7 @@
 
 char *_strdup(char *str)
 {
-	int len = strlen(str), i;
+	int len = _strlen(str), i;
 	char *a = malloc(sizeof(char) * len);
 
 	if (str == NULL)
