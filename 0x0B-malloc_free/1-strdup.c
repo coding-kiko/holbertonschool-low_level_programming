@@ -47,12 +47,11 @@ char *_strcpy(char *dest, char *src)
 
 char *_strdup(char *str)
 {
-	int len = (_strlen(str) + 1);
 	char *a;
 
 	if (str == NULL)
 		return (NULL);
-	a = malloc(sizeof(char) * len);
+	a = malloc(sizeof(char) * (_strlen(str) + 1));
 	if (a == NULL)
 		return (NULL);
 	return (_strcpy(a, str));
