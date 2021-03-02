@@ -22,6 +22,23 @@ int _strlen(char *s)
 }
 
 /**
+ *_strcpy - copy a string
+ * @dest: destination of the copied string
+ * @src: source of the string
+ * Return: copied string
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+	char *p = dest;
+
+	for (; *src != 0; src++, dest++)
+		*dest = *src;
+	*dest = '\0';
+	return (p);
+}
+
+/**
  * _strdup - entry point
  * @str: number of arguments passed
  * array of pointers pointing to these arguments
@@ -30,7 +47,7 @@ int _strlen(char *s)
 
 char *_strdup(char *str)
 {
-	int len = (_strlen(str) + 1), i;
+	int len = (_strlen(str) + 1);
 	char *a;
 
 	if (str == NULL)
@@ -38,7 +55,5 @@ char *_strdup(char *str)
 	a = malloc(sizeof(char) * len);
 	if (a == NULL)
 		return (NULL);
-	for (i = 0; i <= _strlen(str); i++)
-		a[i] = str[i];
-	return (a);
+	return (_strcpy(a, str));
 }
