@@ -32,13 +32,13 @@ int _strlen(char *s)
 
 char **strtow(char *str)
 {
-	char *a;
-	int len = _strlen(str);
+	char *a, **p;
 
-	if (str == NULL || str == "")
+	if (str == NULL || str == '\0')
 		return (NULL);
-	a = malloc(sizeof(char) * len);
+	a = malloc(sizeof(char) * _strlen(str));
 	if (a == NULL)
 		return (NULL);
-	return (a);
+	p = &a;
+	return (p);
 }
