@@ -11,24 +11,25 @@
 
 int **alloc_grid(int width, int height)
 {
-	char *a;
-	int** array2D = 0;
-	array2D = new int*[height];
+	int **a, i, j;
 
 	if (width <= 0 || height <= 0)
 		return (NULL);
-	a = malloc(sizeof(int) * (width * height));
+	a = malloc(sizeof(int *) * height);
 	if (a == NULL)
 		return (NULL);
-	for (int h = 0; h < height; h++)
+	for (i = 0; i < height; i++)
 	{
-		array2D[h] = new int[width];
-
-		for (int w = 0; w < width; w++)
+		a[i] = malloc(sizeof(int) * width);
+		if (a[i] == NULL)
 		{
-			array2D[h][w] = w + width * h;
+			for (j = 0; j < height; j++)
+				free(a[j]);
+			free(a);
+			return (NULL);
 		}
+		for (j = 0; j < width; j++)
+			a[i][j] = 0;
 	}
-
-	return array2D;
+	return (a);
 }
