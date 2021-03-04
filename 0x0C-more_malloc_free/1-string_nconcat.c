@@ -34,13 +34,14 @@ int _strlen(char *s)
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	char *a;
-	unsigned int i = 0, j = 0, lens1, lens2;
+	unsigned int i = 0, j = 0, lens1 = _strlen(s1), lens2 = _strlen(s2);
 
-	a = malloc(sizeof(char) * (sizeof(s1) + n));
+	if (n >= lens2)
+		a = malloc(sizeof(char) * (lens1 + lens2 + 1));
+	else if (n < lens2)
+		a = malloc(sizeof(char) * (lens1 + n + 1));
 	if (a == NULL)
 		return (NULL);
-	lens1 = _strlen(s1);
-	lens2 = _strlen(s2);
 	for (; i < lens1; i++)
 		a[i] = s1[i];
 	if (n >= lens2)
