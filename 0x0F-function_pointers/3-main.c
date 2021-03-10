@@ -1,6 +1,7 @@
-#include "calc.h"
-#include <stdio.h>
+#include "3-calc.h"
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - Short description
@@ -13,24 +14,27 @@
 
 int main(int argc, char *argv[])
 {
-	int a, b;
+	int a, b, r;
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	if (argv[2] != '+' && argv[2] != '*' && argv[2] != '-' && argv[2] != '/' && argv[2] != '%' &&)
+	if (get_op_func(argv[2]) == NULL)
 	{
 		printf("Error\n");
 		exit(99);
 	}
-	if ((argv[2] == '%' || argv[2] == '/') && argv[3] == 0)
+	if ((strcmp(argv[2], "%") == 0 || strcmp(argv[2], "/") != 0) && (atoi(argv[3])) == 0)
 	{
 		printf("Error\n");
 		exit(100);
 	}
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
-
+	r = (*get_op_func(argv[2]))(a, b);
+	printf("%d", r);
+	printf("\n");
+	return (0);
 }
