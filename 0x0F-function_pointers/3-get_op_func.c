@@ -5,9 +5,9 @@
 /**
  * get_op_func - Short description
  * @s: First member
- * @size: Second member
+ * : Second member
  * iwf
- * Return:
+ * Return: ffff
  * Description: Longer description
  */
 
