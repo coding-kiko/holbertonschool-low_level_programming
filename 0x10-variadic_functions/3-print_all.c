@@ -29,7 +29,7 @@ void print_all(const char * const format, ...)
 		j = 0;
 		while (ops[j].op)
 		{
-			if (format[i] == ops[j].op)
+			if (format[i] == ops[j].op[0])
 			{
 				printf("%s", sep);
 				(ops[j].f(p));
