@@ -13,6 +13,7 @@
 void print_all(const char * const format, ...)
 {
 	int i = 0, j;
+	char *sep = "";
 	va_list p;
 
 	op_t ops[] = {
@@ -23,15 +24,16 @@ void print_all(const char * const format, ...)
 		{'\0', '\0'}
 	};
 	va_start(p, format);
-	while (format[i] && format != NULL)
+	while (format[i])
 	{
 		j = 0;
 		while (ops[j].op)
 		{
 			if (format[i] == ops[j].op[0])
 			{
+				printf("%s", sep);
 				(ops[j].f(p));
-				printf(", ");
+				sep = ", ";
 			}
 			j++;
 		}
