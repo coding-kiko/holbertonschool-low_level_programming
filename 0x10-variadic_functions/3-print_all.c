@@ -23,7 +23,7 @@ void print_all(const char * const format, ...)
 		{'\0', '\0'}
 	};
 	va_start(p, format);
-	while (format[i])
+	while (format[i] && format != NULL)
 	{
 		j = 0;
 		while (ops[j].op)
