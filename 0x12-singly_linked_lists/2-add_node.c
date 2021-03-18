@@ -4,7 +4,7 @@
 #include "lists.h"
 
 /**
- * list_len - Short description
+ * add_node - Short description
  * @head: constant number n to be summed
  * @str: xd
  * Return: Sum of undefined quantity of numbers
