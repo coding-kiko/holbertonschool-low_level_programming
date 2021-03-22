@@ -5,8 +5,8 @@
 
 /**
  * add_nodeint_end - Short description
- * @head: constant number n to be summed
- * @str: xd
+ * @head: head node
+ * @n: number
  * Return: Sum of undefined quantity of numbers
  * Description: Sum numbers
  */

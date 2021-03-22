@@ -6,7 +6,7 @@
 /**
  * add_nodeint - Short description
  * @head: constant number n to be summed
- * @str: xd
+ * @n: number
  * Return: Sum of undefined quantity of numbers
  * Description: Sum numbers
  */
