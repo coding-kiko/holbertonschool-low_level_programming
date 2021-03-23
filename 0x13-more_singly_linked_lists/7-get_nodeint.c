@@ -3,7 +3,7 @@
 #include "lists.h"
 
 /**
- * pop_listint - Short description
+ * get_nodeint_at_index - Short description
  * @head: constant number n to be summed
  * @index: index node xd
  * Return: Sum of undefined quantity of numbers

@@ -3,11 +3,11 @@
 #include "lists.h"
 
 /**
- * pop_listint - Short description
+ * insert_nodeint_at_index - Short description
  * @head: constant number n to be summed
- * @index: index node xd
+ * @idx: index node xd
  * @n: Sum of undefined quantity of numbers
- * Description: Sum numbers
+ * Return: Sum numbers
  */
 
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
