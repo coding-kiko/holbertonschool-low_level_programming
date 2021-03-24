@@ -3,7 +3,7 @@
 #include "lists.h"
 
 /**
- * insert_nodeint_at_index - Short description
+ * reverse_listint - Short description
  * @head: constant number n to be summed
  * idx: index node xd
  * Sum of undefined quantity of numbers
