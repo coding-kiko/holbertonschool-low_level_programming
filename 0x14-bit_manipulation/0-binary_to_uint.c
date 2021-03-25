@@ -1,29 +1,18 @@
 #include "holberton.h"
-#include <string.h>
 
 /**
- * _atoi - entry point
- * @s: string to convert to int
- * Return: converted integer
+ * _pow_recursion - Entry point
+ * @x: string to modify
+ * @y: thiago silva
+ * Return: pointer to memory area s
  */
 
-int _atoi(char *s)
+int _pow_recursion(unsigned int x, unsigned int y)
 {
-	int c = 1;
-	int n = 0;
-
-	for (; *s != 0; s++)
-	{
-		if (*s == '-')
-			c = -c;
-		if (*s >= 48 && *s <= 57)
-		{
-			n = n * 10 + c * (*s - '0');
-			if (*(s + 1) < '0' || *(s + 1) > '9')
-				return (n);
-		}
-	}
-	return (n);
+        if (y == 0)
+                return (1);
+        else
+                return (x * _pow_recursion(x, y - 1));
 }
 
 /**
@@ -35,24 +24,21 @@ int _atoi(char *s)
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int f, j, i = 0, dig = 0, dec = 0;
-	char *c;
+	unsigned int p = 0, dec = 0, len = 0;
 
-	for (j = 0; b[j]; j++)
-	{
-		if (b[j] < '0' || b[j] > '9')
-			return (0);
-	}
 	if (!b)
-		return (0);
-	c = strdup(b);
-	f = _atoi(c);
-	while (f != 0)
+                return (0);
+	while (b[p])
 	{
-		dig = f % 10;
-		dec += dig << i;
-		f = f / 10;
-		i++;
+		len++;
+		p++;
+	}
+	len--;
+	for (p = 0; b[p]; p++, len--)
+	{
+		if (b[p] != '0' && b[p] != '1')
+			return (0);
+		dec += (b[p] - '0') * _pow_recursion(2, len);
 	}
 	return (dec);
 }
