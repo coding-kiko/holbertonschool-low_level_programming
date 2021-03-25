@@ -4,6 +4,45 @@
 #include <string.h>
 
 /**
+ * _strlen - entry point
+ * @s: string to find length
+ * Return: length
+ *
+ */
+
+int _strlen(char *s)
+{
+        char a = s[0];
+        int i = 0;
+        int b;
+
+        while (a != 0)
+        {
+                a = s[i];
+                i++;
+        }
+        b = i - 1;
+        return (b);
+}
+
+/**
+ *_strcpy - copy a string
+ * @dest: destination of the copied string
+ * @src: source of the string
+ * Return: copied string
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+	char *p = dest;
+
+	for (; *src != 0; src++, dest++)
+		*dest = *src;
+	*dest = '\0';
+	return (p);
+}
+
+/**
  * rev_string - entry point
  * @s: string to revert
  * Return: nothing
@@ -31,43 +70,6 @@ void rev_string(char *s)
 		begin++;
 		end--;
 	}
-}
-
-/**
- * _strlen - entry point
- * @s: string to find length
- * Return: length
- *
- */
-
-int _strlen(char *s)
-{
-	char a = s[0];
-	int i = 0;
-	int b;
-
-	while (a != 0)
-	{
-		a = s[i];
-		i++;
-	}
-	b = i - 1;
-	return (b);
-}
-
-/**
- * _atoi - entry point
- * @s: string to convert to int
- * Return: converted integer
- */
-
-int _atoi(char s)
-{
-	int c = 1;
-	int n = 0;
-
-	n = n * 10 + c * (s - '0');
-	return (n);
 }
 
 /**
@@ -107,7 +109,7 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if (c[p] != '0' && c[p] != '1')
 			return (0);
-		f = (_atoi(c[p]));
+		f = (c[p] - '0');
 		a += (f * (_pow_recursion(2, p)));
 	}
 	return (a);
