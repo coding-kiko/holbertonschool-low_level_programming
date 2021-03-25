@@ -1,6 +1,7 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
 
+int _putchar(char c);
 void rev_string(char *s);
 int _strlen(char *s);
 int _atoi(char s);
