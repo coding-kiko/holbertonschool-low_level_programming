@@ -9,10 +9,10 @@
 
 int _pow_recursion(unsigned int x, unsigned int y)
 {
-        if (y == 0)
-                return (1);
-        else
-                return (x * _pow_recursion(x, y - 1));
+	if (y == 0)
+		return (1);
+	else
+		return (x * _pow_recursion(x, y - 1));
 }
 
 /**
@@ -27,7 +27,7 @@ unsigned int binary_to_uint(const char *b)
 	unsigned int p = 0, dec = 0, len = 0;
 
 	if (!b)
-                return (0);
+		return (0);
 	while (b[p])
 	{
 		len++;
