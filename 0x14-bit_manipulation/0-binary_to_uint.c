@@ -1,92 +1,29 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "holberton.h"
 #include <string.h>
 
 /**
- * _strlen - entry point
- * @s: string to find length
- * Return: length
- *
+ * _atoi - entry point
+ * @s: string to convert to int
+ * Return: converted integer
  */
 
-int _strlen(char *s)
+int _atoi(char *s)
 {
-        char a = s[0];
-        int i = 0;
-        int b;
+	int c = 1;
+	int n = 0;
 
-        while (a != 0)
-        {
-                a = s[i];
-                i++;
-        }
-        b = i - 1;
-        return (b);
-}
-
-/**
- *_strcpy - copy a string
- * @dest: destination of the copied string
- * @src: source of the string
- * Return: copied string
- */
-
-char *_strcpy(char *dest, char *src)
-{
-	char *p = dest;
-
-	for (; *src != 0; src++, dest++)
-		*dest = *src;
-	*dest = '\0';
-	return (p);
-}
-
-/**
- * rev_string - entry point
- * @s: string to revert
- * Return: nothing
- *
- */
-
-void rev_string(char *s)
-{
-	int length, c;
-	char *begin, *end, temp;
-
-	length = _strlen(s);
-	begin  = s;
-	end    = s;
-
-	for (c = 0; c < length - 1; c++)
-		end++;
-
-	for (c = 0; c < length / 2; c++)
+	for (; *s != 0; s++)
 	{
-		temp   = *end;
-		*end   = *begin;
-		*begin = temp;
-
-		begin++;
-		end--;
+		if (*s == '-')
+			c = -c;
+		if (*s >= 48 && *s <= 57)
+		{
+			n = n * 10 + c * (*s - '0');
+			if (*(s + 1) < '0' || *(s + 1) > '9')
+				return (n);
+		}
 	}
-}
-
-/**
- * _pow_recursion - Entry point
- * @x: string to modify
- * @y: thiago silva
- * Return: pointer to memory area s
- */
-
-int _pow_recursion(int x, int y)
-{
-	if (y < 0)
-		return (-1);
-	if (y == 0)
-		return (1);
-	else
-		return (x * _pow_recursion(x, y - 1));
+	return (n);
 }
 
 /**
@@ -98,19 +35,24 @@ int _pow_recursion(int x, int y)
 
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int p, f, a = 0;
+	unsigned int f, j, i = 0, dig = 0, dec = 0;
 	char *c;
 
+	for (j = 0; b[j]; j++)
+	{
+		if (b[j] < '0' || b[j] > '9')
+			return (0);
+	}
 	if (!b)
 		return (0);
 	c = strdup(b);
-	rev_string(c);
-	for (p = 0; c[p]; p++)
+	f = _atoi(c);
+	while (f != 0)
 	{
-		if (c[p] != '0' && c[p] != '1')
-			return (0);
-		f = (c[p] - '0');
-		a += (f * (_pow_recursion(2, p)));
+		dig = f % 10;
+		dec += dig << i;
+		f = f / 10;
+		i++;
 	}
-	return (a);
+	return (dec);
 }
