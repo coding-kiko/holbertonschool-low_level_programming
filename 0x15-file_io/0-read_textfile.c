@@ -1,28 +1,6 @@
 #include "holberton.h"
 
 /**
- * _calloc - entry point
- * @size: string to find length
- * @nmemb: asdflaf
- * Return: length
- */
-
-void *_calloc(unsigned int nmemb, unsigned int size)
-{
-	char *a;
-	unsigned int i;
-
-	if (nmemb == 0 || size == 0)
-		return (NULL);
-	a = malloc(nmemb * size);
-	if (a == NULL)
-		return (NULL);
-	for (i = 0; i < (nmemb * size); i++)
-		*(a + i) = 0;
-	return (a);
-}
-
-/**
  * read_textfile - Entry point
  * @filename: string to modify
  * @letters: thiago silva
@@ -37,7 +15,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	if (!filename)
 		return (0);
-	buff = _calloc(sizeof(char) * letters, letters);
+	buff = malloc(letters);
 	if (!buff)
 		return (0);
 	fd = open(filename, O_RDONLY);
@@ -49,7 +27,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	count = read(fd, buff, letters);
 	if (count != -1)
 	{
-		written = write(STDOUT_FILENO, buff, letters);
+		written = write(STDOUT_FILENO, buff, count);
 		if (written == -1)
 		{
 			free(buff);
