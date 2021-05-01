@@ -10,12 +10,12 @@
 
 void free_dlistint(dlistint_t *head)
 {
-  dlistint_t *fire;
+	dlistint_t *fire;
 
-  while (head)
-   {
-     fire = head;
-     head = head->next;
-     free(fire);
-   }
+	while (head)
+	{
+		fire = head;
+		head = head->next;
+		free(fire);
+	}
 }
