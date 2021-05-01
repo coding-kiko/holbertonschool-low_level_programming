@@ -2,7 +2,7 @@
 
 /**
  * insert_dnodeint_at_index - Short description
- * @head: constant number n to be summed
+ * @h: constant number n to be summed
  * @idx: index node xd
  * @n: Sum of undefined quantity of numbers
  * Return: Sum numbers
@@ -19,15 +19,16 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new->n = n;
 	if (!h && idx == 0)
 	{
-		*h = new;
 		new->next = NULL;
 		new->prev = NULL;
+		*h = new;
 		return (new);
 	}
-	if (idx == 0)
+	if (idx == 0 && h)
 	{
 		new->next = *h;
 		(*h)->prev = new;
+		new->prev = NULL;
 		*h = new;
 		return (new);
 	}
