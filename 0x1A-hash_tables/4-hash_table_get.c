@@ -13,7 +13,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	unsigned long int idx, size;
 	hash_node_t *temp;
 
-	if (!ht || !key || !(ht->array))
+	if (!ht || !key)
 		return (NULL);
 	size = ht->size;
 	idx = hash_djb2((const unsigned char *)key) % size;
@@ -22,6 +22,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	{
 		if (strcmp((temp->key), ((char *)key)) == 0)
 			return (temp->value);
+		temp = temp->next;
 	}
 	return (NULL);
 }
