@@ -1,7 +1,7 @@
 #include "hash_tables.h"
 
 /**
- * hash_table_print - creates hash table with size @size
+ * hash_table_delete - creates hash table with size @size
  *
  * @ht: The size of the array
  *
