@@ -23,12 +23,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	temp = ht->array[idx];
 	while (temp)
 	{
-		/*printf("Control:  %s\n", temp->key);*/
 		if (strcmp((temp->key), ((char *)key)) == 0)
 		{
-			/*printf("Se actualiza el valor: %s ----> %s\n", temp->value, value);*/
 			temp->value = (char *)value;
-			/*printf("nueva clave: (%s, %s)\n", temp->key, temp->value);*/
 			return (1);
 		}
 		temp = temp->next;
@@ -36,8 +33,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new = malloc(sizeof(hash_node_t));
 	if (!new)
 		return (0);
-	new->key = (char *)key;
-	new->value = (char *)value;
+	new->key = strdup(key);
+	if (!new->value)
+        {
+                free(new);
+                return (0);
+        }
+	new->value = strdup(value);
+	if (!new->value)
+	{
+		free(new);
+		free(new->key);
+		return (0);
+	}
 	new->next = ht->array[idx];
 	ht->array[idx] = new;
 	return (1);
