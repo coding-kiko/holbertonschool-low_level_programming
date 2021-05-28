@@ -12,13 +12,22 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int size, idx;
-	hash_node_t *new;
+	hash_node_t *new, *temp;
 
 	if (!ht || !key || (strlen(key) == 0) || !value)
 		return (0);
 	size = ht->size;
 	idx = hash_djb2((const unsigned char *)key) % size;
-	/*temp = ht->array[idx];*/
+	temp = ht->array[idx];
+	while (temp)
+	{
+		if (strcmp((temp->key), ((char *)key)) == 0)
+		{
+			temp->value = (char *)value;
+			return (1);
+		}
+		temp = temp->next;
+	}
 	new = malloc(sizeof(hash_node_t));
 	if (!new)
 		return (0);
