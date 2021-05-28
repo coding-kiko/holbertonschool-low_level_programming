@@ -17,13 +17,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!ht || !key || (strlen(key) == 0) || !value)
 		return (0);
 	size = ht->size;
+	if (size == 0)
+		return (0);
 	idx = hash_djb2((const unsigned char *)key) % size;
 	temp = ht->array[idx];
 	while (temp)
 	{
+		/*printf("Control:  %s\n", temp->key);*/
 		if (strcmp((temp->key), ((char *)key)) == 0)
 		{
+			/*printf("Se actualiza el valor: %s ----> %s\n", temp->value, value);*/
 			temp->value = (char *)value;
+			/*printf("nueva clave: (%s, %s)\n", temp->key, temp->value);*/
 			return (1);
 		}
 		temp = temp->next;
