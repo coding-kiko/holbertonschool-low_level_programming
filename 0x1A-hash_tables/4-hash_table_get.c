@@ -16,6 +16,8 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	if (!ht || !key)
 		return (NULL);
 	size = ht->size;
+	if (size == 0):
+		return (NULL);
 	idx = hash_djb2((const unsigned char *)key) % size;
 	temp = ht->array[idx];
 	while (temp)
