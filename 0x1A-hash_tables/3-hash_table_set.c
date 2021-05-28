@@ -19,6 +19,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	size = ht->size;
 	idx = hash_djb2((const unsigned char *)key) % size;
 	new = malloc(sizeof(hash_node_t));
+	if (!new)
+		return (0);
 	new->key = (char *)key;
 	new->value = (char *)value;
 	while (ht->array[idx] != NULL)
