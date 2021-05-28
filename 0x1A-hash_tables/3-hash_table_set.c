@@ -23,15 +23,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	new->key = (char *)key;
 	new->value = (char *)value;
-	while (ht->array[idx] != NULL)
-	{
-		if (ht->array[idx]->key == key)
-		{
-			ht->array[idx]->value = (char *)value;
-			return (1);
-		}
-		ht->array[idx] = ht->array[idx]->next;
-	}
 	if (ht->array[idx] == NULL)
 		new->next = NULL;
 	else
