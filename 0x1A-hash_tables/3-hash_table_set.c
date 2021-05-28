@@ -11,15 +11,12 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int size, idx;
+	unsigned long int idx;
 	hash_node_t *new, *temp;
 
 	if (!ht || !key || (strlen(key) == 0) || !value)
 		return (0);
-	size = ht->size;
-	if (size == 0)
-		return (0);
-	idx = hash_djb2((const unsigned char *)key) % size;
+	idx = hash_djb2((const unsigned char *)key) % (ht->size);
 	temp = ht->array[idx];
 	while (temp)
 	{
@@ -33,17 +30,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new = malloc(sizeof(hash_node_t));
 	if (!new)
 		return (0);
-	new->key = strdup(key);
-	if (!new->key)
-	{
-		free(new);
-		return (0);
-	}
+	new->key = (char *)key;
 	new->value = strdup(value);
 	if (!new->value)
 	{
 		free(new);
-		free(new->key);
 		return (0);
 	}
 	new->next = ht->array[idx];
