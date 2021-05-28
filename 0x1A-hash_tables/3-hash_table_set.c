@@ -12,21 +12,29 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int size, idx;
-	hash_node_t *new;
+	hash_node_t *new, *temp;
 
 	if (!ht || !key || (strlen(key) == 0) || !value)
 		return (0);
 	size = ht->size;
 	idx = hash_djb2((const unsigned char *)key) % size;
+        /*
+	while (ht->array[idx] != NULL)
+	{
+		if (strcmp(ht->array[idx]->key, key) == 0)
+			
+		}*/
 	new = malloc(sizeof(hash_node_t));
 	if (!new)
 		return (0);
 	new->key = (char *)key;
 	new->value = (char *)value;
-	if (ht->array[idx] == NULL)
+	temp = ht->array[idx];
+	
+	if (temp == NULL)
 		new->next = NULL;
 	else
-		new->next = ht->array[idx];
-	ht->array[idx] = new;
+		new->next = temp;
+	temp = new;
 	return (1);
 }
