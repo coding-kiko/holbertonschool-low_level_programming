@@ -1,0 +1,4 @@
+all: compile_main
+
+compile_main:
+	gcc main.c -o holberton
