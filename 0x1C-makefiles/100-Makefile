@@ -4,7 +4,7 @@ OBJ = $(patsubst %.c, %.o, $(SRC))
 NAME = holberton
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-all: $(OBJ)
+all: $(OBJ) m.h
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean:
