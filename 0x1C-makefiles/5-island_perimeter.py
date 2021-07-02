@@ -16,7 +16,7 @@ def island_perimeter(grid):
 
                 # ask if element above exists, then ask which element it is
                 if y == 0:
-                    count +=1
+                    count += 1
                 elif grid[y - 1][x] == 0:
                     count += 1
 
@@ -31,6 +31,7 @@ def island_perimeter(grid):
                     count += 1
                 elif grid[y][x - 1] == 0:
                     count += 1
+
                 # ask if element to right exists, then ask which element it is
                 if x == (width - 1):
                     count += 1
